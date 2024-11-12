@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #4a90e2;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    textarea {
+      resize: vertical;
+      height: 80px;
+    }
+    button {
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #357ab8;
+    }
+    h2 {
+      margin-top: 30px;
+      text-align: center;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 400px;
+      margin: auto;
+    }
+    li {
+      background-color: #fff;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 4px;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Expense Tracker</h1>
+
+  <form action="/add-expense" method="POST">
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" required>
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" step="0.01" required>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description"></textarea>
+
+    <button type="submit">Add Expense</button>
+  </form>
+
+  <h2>Expenses List</h2>
+  <ul>
+    <% expenses.forEach(expense => { %>
+      <li><%= expense.category %> - $<%= expense.amount.toFixed(2) %> - <%= expense.date.toISOString().split('T')[0] %> - <%= expense.description || 'No description' %></li>
+    <% }); %>
+  </ul>
+</body>
+</html>

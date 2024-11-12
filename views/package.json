@@ -1,0 +1,21 @@
+{
+  "name": "expense-tracker-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "a" 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mssql": "^11.0.1"
+  },
+  "devDependencies": {
+  
+  }
+}
